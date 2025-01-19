@@ -23,6 +23,18 @@ button {
     margin-top: 1rem;
     padding: 0.8rem;
     border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+    width: 100%;
+    background-color: #036;
+    color: white;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
 }
 
 input {
@@ -31,6 +43,7 @@ input {
     margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    height: 2.5rem;
 }
 
 .heading {
@@ -41,7 +54,6 @@ input {
 }
 
 label {
-    /* font-weight: bold; */
+    font-weight: bold;
     font-size: large;
-    color: #036;
 }
