@@ -1,0 +1,47 @@
+.homepage{
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding: 1rem;
+    /* border: 2px solid grey; */
+    box-shadow: 2px 2px 4px #888888;
+    border-radius: 5px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+label {
+    display: block;
+}
+
+button {
+    width: 100%;
+    background-color: #036;
+    color: white;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.heading {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: #036;
+}
+
+label {
+    /* font-weight: bold; */
+    font-size: large;
+    color: #036;
+}
