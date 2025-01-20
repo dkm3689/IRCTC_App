@@ -1,0 +1,24 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    background-color: #036;
+    color: white;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}

@@ -1,11 +1,13 @@
 import './App.css'
-import Home from "./components/Home/home";
+import Home from "./pages/Home/home";
+import Register from "./pages/Register/Register";
 
 function App() {
   
   return (
     <>
-      <Home/>
+      {/* <Home/> */}
+      <Register/>
       {/* <h1> Hello world </h1> */}
     </>
   )
