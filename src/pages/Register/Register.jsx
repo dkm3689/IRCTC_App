@@ -22,7 +22,7 @@ const Register = () => {
 
       <div>
         <label className="password"> Password </label>
-        <input  type="date" />
+        <input  type="password" />
       </div>
 
       <div>

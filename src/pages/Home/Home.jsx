@@ -3,6 +3,16 @@ import Navbar from "../../components/Navbar/Navbar.jsx"
 import "./Home.css"
 
 const Home = () => {
+
+  const handleSearch = () => {
+    const toStation = document.getElementById('toStation').value;
+    const fromStation = document.getElementById('fromStation').value;
+    const date = document.getElementById('dateInput').value;
+    if(!toStation || !fromStation || !date){
+      alert("Please fill the station")
+    }
+  }
+
   return (
     <>
       <div className="homepage">
@@ -15,23 +25,23 @@ const Home = () => {
         </div>
 
         <div>
-          <label className="from"> From </label>
-          <input  type="text" placeholder="Enter Departure Station" />
+          <label for="fromStation"  className="from"> From </label>
+          <input  type="text" placeholder="Enter Departure Station" id="fromStation" />
         </div>
 
         <div>
-          <label for="toInput" className="To"> To </label>
-          <input  type="text" placeholder="Enter Arrival Station" id="toInput" />
+          <label for="toStation" className="To"> To </label>
+          <input  type="text" placeholder="Enter Arrival Station" id="toStation" />
         </div>
 
         <div>
           <label className="Date"> Date </label>
-          <input  type="date" placeholder="dd-mm-yyyy" />
+          <input  type="date" placeholder="dd-mm-yyyy" id="dateInput"/>
         </div>
 
 
         <div>
-          <button> Search Trains </button>
+          <button onClick={() => handleSearch()}> Search Trains </button>
         </div>
 
       </div>
