@@ -1,4 +1,4 @@
-.register {
+.registerContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,6 +10,10 @@
     margin-top: 4rem;
 }
 
+.heading {
+    margin: 0 auto;
+}
+
 input {
     width: 100%;
     padding: 0.5rem;
@@ -19,7 +23,7 @@ input {
     height: 2.5rem;
 }
 
-label {
+.label {
     font-weight: bold;
     font-size: large;
 }

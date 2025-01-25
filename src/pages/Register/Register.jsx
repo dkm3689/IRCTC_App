@@ -1,28 +1,29 @@
 import React from 'react'
-import "./Register.css"
+// import "./Register.css"
+import styles from "./Register.module.css"
 
 const Register = () => {
   return (
     <>
-    <div className="register">
+    <div className={styles.registerContainer}>
       
-      <div className="heading">
+      <div className={styles.heading}>
         <h2> Register </h2>
       </div>
 
       <div>
-        <label className="username"> Username </label>
-        <input  type="text" />
+        <label for="usernameInput" className={styles.label}> Username </label>
+        <input  type="text" id="usernameInput"/>
       </div>
 
       <div>
-        <label for="emailInput" className="email"> Email </label>
+        <label for="emailInput" className={styles.label}> Email </label>
         <input  type="text" id="emailInput" />
       </div>
 
       <div>
-        <label className="password"> Password </label>
-        <input  type="password" />
+        <label for="passwordInput" className={styles.label}> Password </label>
+        <input  type="password" id="passwordInput" />
       </div>
 
       <div>

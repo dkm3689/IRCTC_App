@@ -7,8 +7,8 @@ function App() {
   
   return (
     <>
-      <Home/>
-      {/* <Register/> */}
+      {/* <Home/> */}
+      <Register/>
       {/* <Login/> */}
       {/* <h1> Hello world </h1> */}
     </>
