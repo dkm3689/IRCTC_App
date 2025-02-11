@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Express Line 101",
+        "from": "New York",
+        "to": "Los Angeles",
+        "departureTime": "2025-02-09T08:00:00",
+        "arrivalTime": "2025-02-10T18:30:00",
+        "fare": 150
+    },
+    {
+        "id": 2,
+        "name": "Coastal Express",
+        "from": "San Francisco",
+        "to": "Seattle",
+        "departureTime": "2025-02-09T10:30:00",
+        "arrivalTime": "2025-02-09T20:45:00",
+        "fare": 300
+    }
+]
