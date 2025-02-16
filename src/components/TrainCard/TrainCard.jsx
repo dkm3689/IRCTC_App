@@ -5,7 +5,7 @@ const TrainCard = ({train}) => {
   return (
     <>
         <div className="train-card">
-            <div>TrainCard</div>
+            <div>{train.name}</div>
             <p> From: {train.from} </p>
             <p> To: {train.To} </p>
             <p> Departure Time: {train.departureTime} </p>

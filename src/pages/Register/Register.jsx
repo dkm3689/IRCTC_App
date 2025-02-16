@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 // import "./Register.css"
 import styles from "./Register.module.css"
 import styled from "styled-components"
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import app from "../../config/firebase"; // Import the app instance
+import { showSuccessToast, showErrorToast, showInfoToast} from '../../util/toast.js'
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -11,6 +14,53 @@ const Title = styled.h1`
   `
 
 const Register = () => {
+
+  const [userData, setUserData] = useState({
+    userName: "",
+    email: "",
+    password:""
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("inside handle submit");
+
+    const {userName, email, password} = userData;
+    const auth = getAuth(app);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        // console.log("user created:", userCredential.user)
+        return sendEmailVerification(user)
+      })
+      .then((result) => {
+        //user created
+        showSuccessToast("User created....Please verify your email to login");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log("error creating user:", errorCode);
+        showErrorToast(errorCode);
+      })
+  }
+
+
+  const handleUserNameChange = (e) => {
+    console.log("inside username change");
+    setUserData({...userData, userName: e.target.value})
+  }
+
+  const handleEmailChange = (e) => {
+    console.log("inside email change");
+    setUserData({...userData, email: e.target.value})
+  }
+
+  const handlePasswordChange = (e) => {
+    console.log("inside password change");
+    setUserData({...userData, password: e.target.value})
+  }
+
+
   return (
     <>
     <div className={styles.registerContainer}>
@@ -22,20 +72,20 @@ const Register = () => {
       <Title> Styled Component </Title>
       <Title color="red"> Styled Component </Title>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
-          <label for="usernameInput" className={styles.label}> Username </label>
-          <input  type="text" id="usernameInput"/>
+          <label htmlFor="usernameInput" className={styles.label}> Username </label>
+          <input  type="text" id="usernameInput" onChange={handleUserNameChange}/>
         </div>
 
         <div className={styles.inputBox}>
-          <label for="emailInput" className={styles.label}> Email </label>
-          <input  type="text" id="emailInput" />
+          <label htmlFor="emailInput" className={styles.label}> Email </label>
+          <input  type="text" id="emailInput"  onChange={handleEmailChange}/>
         </div>
 
         <div className={styles.inputBox}>
-          <label for="passwordInput" className={styles.label}> Password </label>
-          <input  type="password" id="passwordInput" />
+          <label htmlFor="passwordInput" className={styles.label}> Password </label>
+          <input  type="password" id="passwordInput"  onChange={handlePasswordChange}/>
         </div>
 
         <div className={styles.buttonBox}>

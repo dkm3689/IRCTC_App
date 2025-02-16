@@ -4,16 +4,20 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import ClassBasedExample from "./components/LifeCycleMethods/ClassBasedExample"
 import WrapperForExample from './components/LifeCycleMethods/WrapperForExample';
+import CustomHookUsage from './components/CustomHookUsage';
+import {Toaster} from "react-hot-toast"
 
 function App() {
   
   return (
     <>
-      <Home/>
+      {/* <Home/> */}
+      {/* <CustomHookUsage/> */}
+      <Toaster position="top-right" />
       {/* <Register/> */}
       {/* <ClassBasedExample/> */}
       {/* <WrapperForExample/> */}
-      {/* <Login/> */}
+      <Login/>
       {/* <h1> Hello world </h1> */}
     </>
   )

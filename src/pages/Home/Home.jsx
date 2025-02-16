@@ -20,7 +20,8 @@ const Home = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form Data:", formData);
-    setTrainList(formData);
+    setIsLoading(true);
+    // setTrainList(formData);
     // const toStation = document.getElementById('toStation').value;
     // const fromStation = document.getElementById('fromStation').value;
     // const date = document.getElementById('dateInput').value;
@@ -33,6 +34,7 @@ const Home = () => {
   useEffect(() => {
     console.log("inside useEffect");
     setTimeout(() => {
+      setTrainList(trainData);
       setIsLoading(false);
     }, 2000)
 
@@ -84,6 +86,7 @@ const Home = () => {
           <button> Search Trains </button>
         </div>
       </form>
+      <h2> Available Trains: </h2>
       <TrainList/>
       </div>
     </>
