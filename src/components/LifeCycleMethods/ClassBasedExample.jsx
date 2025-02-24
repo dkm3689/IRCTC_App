@@ -21,9 +21,9 @@ class ClassBasedExample extends Component {
     }
 
 
-    componentDidMount() {
-        console.log("component will unmount is running");
-    }
+    // componentDidMount() {
+    //     console.log("component will unmount is running");
+    // }
 
 
 

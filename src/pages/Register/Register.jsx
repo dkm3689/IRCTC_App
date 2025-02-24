@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+// import React, {useState} from 'react'
 // import "./Register.css"
 import styles from "./Register.module.css"
 import styled from "styled-components"
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import app from "../../config/firebase"; // Import the app instance
 import { showSuccessToast, showErrorToast, showInfoToast} from '../../util/toast.js'
+import useForm from "../../hooks/useForm"
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -15,7 +16,7 @@ const Title = styled.h1`
 
 const Register = () => {
 
-  const [userData, setUserData] = useState({
+  const [userData, handleChange] = useForm({
     userName: "",
     email: "",
     password:""
@@ -45,20 +46,20 @@ const Register = () => {
   }
 
 
-  const handleUserNameChange = (e) => {
-    console.log("inside username change");
-    setUserData({...userData, userName: e.target.value})
-  }
+  // const handleUserNameChange = (e) => {
+  //   console.log("inside username change");
+  //   setUserData({...userData, userName: e.target.value})
+  // }
 
-  const handleEmailChange = (e) => {
-    console.log("inside email change");
-    setUserData({...userData, email: e.target.value})
-  }
+  // const handleEmailChange = (e) => {
+  //   console.log("inside email change");
+  //   setUserData({...userData, email: e.target.value})
+  // }
 
-  const handlePasswordChange = (e) => {
-    console.log("inside password change");
-    setUserData({...userData, password: e.target.value})
-  }
+  // const handlePasswordChange = (e) => {
+  //   console.log("inside password change");
+  //   setUserData({...userData, password: e.target.value})
+  // }
 
 
   return (
@@ -74,18 +75,18 @@ const Register = () => {
 
       <form onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
-          <label htmlFor="usernameInput" className={styles.label}> Username </label>
-          <input  type="text" id="usernameInput" onChange={handleUserNameChange}/>
+          <label htmlFor="userName" className={styles.label}> Username </label>
+          <input  type="text" id="userName" onChange={handleChange}/>
         </div>
 
         <div className={styles.inputBox}>
-          <label htmlFor="emailInput" className={styles.label}> Email </label>
-          <input  type="text" id="emailInput"  onChange={handleEmailChange}/>
+          <label htmlFor="email" className={styles.label}> Email </label>
+          <input  type="text" id="email"  onChange={handleChange}/>
         </div>
 
         <div className={styles.inputBox}>
-          <label htmlFor="passwordInput" className={styles.label}> Password </label>
-          <input  type="password" id="passwordInput"  onChange={handlePasswordChange}/>
+          <label htmlFor="password" className={styles.label}> Password </label>
+          <input  type="password" id="password"  onChange={handleChange}/>
         </div>
 
         <div className={styles.buttonBox}>

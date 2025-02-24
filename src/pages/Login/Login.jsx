@@ -2,34 +2,41 @@ import React, {useState} from 'react'
 import "./Login.css"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { showSuccessToast, showErrorToast, showInfoToast} from '../../util/toast.js'
+import useForm from "../../hooks/useForm"
 
 const Login = () => {
 
-  const [userCred, setUserCred] = useState({
+  const [userData, handleChange] = useForm({
     email: "",
     password: ""
   })
 
-  const handleEmailChange = (e) => {
-    console.log("inside email change");
-    setUserCred({...userCred, email: e.target.value})
-  }
+  // const handleEmailChange = (e) => {
+  //   console.log("inside email change");
+  //   setUserCred({...userCred, email: e.target.value})
+  // }
 
 
-  const handlePasswordChange = (e) => {
-    console.log("inside password change");
-    setUserCred({...userCred, password: e.target.value})
-  }
+  // const handlePasswordChange = (e) => {
+  //   console.log("inside password change");
+  //   setUserCred({...userCred, password: e.target.value})
+  // }
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const {email, password} = userCred;
+    const {email, password} = userData;
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        showSuccessToast("Logged in successfully");
-        console.log("Successfully logged in");
+      .then((userCredential) => {
+        if(userCredential.user.emailVerified) {
+          showSuccessToast("Logged in successfully");
+          console.log("Successfully logged in");
+        } else {
+          showInfoToast("please verify email before logging in")
+        }
+       
+        
       }) .catch((error) => {
           showErrorToast(error.code);
           console.log("error signing in:", error);
@@ -50,12 +57,12 @@ const Login = () => {
      
           <div>
             <label htmlFor="email"  className="username"> Username/Email </label>
-            <input  type="text" id="email" onChange={handleEmailChange} />
+            <input  type="email" id="email" onChange={handleChange} />
           </div>
 
           <div>
             <label htmlFor="password" className="password"> Password </label>
-            <input  type="password"  id="password" onChange={handlePasswordChange} />
+            <input  type="password"  id="password" onChange={handleChange} />
           </div>
 
           <div>
