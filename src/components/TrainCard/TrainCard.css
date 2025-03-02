@@ -1,0 +1,24 @@
+.train-card{
+    font-size: xxx-large;
+    margin: 10px 0;
+}
+
+
+.train-card p {
+    margin: 10px 0;
+    font-size: xx-large;
+}
+
+.train-card button{
+    width: 100%;
+    background-color: #036;
+    color: white;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.train-card button:hover{
+    cursor:pointer;
+}

@@ -1,4 +1,4 @@
-.bookingContainer {
+.homeContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,7 +53,7 @@
     font-size: 1.5rem;
 } 
 
-/* div h3{
+div h3{
     font-size: xxx-large;
 }
 
@@ -65,4 +65,5 @@
 .trainBooking div h3 {
     margin: 20px 0;
     font-size:xxx-large;
-} */
+}
+

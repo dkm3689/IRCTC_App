@@ -1,7 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+import Navbar from "../../components/Navbar/Navbar.jsx";
+import styles from "./BookingHistory.module.css";
 
 const BookingHistory = () => {
   const [bookings, setBookings] = useState([]);
@@ -13,70 +14,64 @@ const BookingHistory = () => {
   const db = getFirestore();
 
   useEffect(() => {
-
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if(user) {
-            setUser(user)
-        } else {
-            console.log("user is not authenticated");
-            setLoading(false);
-        }
+    const unsubscribe = onAuthStateChanged(auth, (authenticatedUser) => {
+      if (authenticatedUser) {
+        setUser(authenticatedUser);
+      } else {
+        setLoading(false);
+      }
     });
 
     return () => unsubscribe();
-
-  }, [auth]);
+  }, []);
 
   useEffect(() => {
     if (!user) return;
 
-    console.log("Bookings: ", bookings)
-
     const fetchBooking = async () => {
-      try { 
+      try {
         const docRef = doc(db, "bookingDetails", user.uid);
         const docSnap = await getDoc(docRef);
 
-        if (!docSnap.exists()) {
-            console.log("No such document!");
-            setBookings([]); 
-          } else {
-            console.log("Fetched data:", docSnap.data());
-            setBookings(docSnap.data().bookings || []); 
-          }
-
-        // console.log("docSnap", docSnap);
-        // setBookings(docSnap.data().bookings || []);
+        if (docSnap.exists()) {
+          setBookings(docSnap.data().bookings || []);
+        } else {
+          setBookings([]);
+        }
       } catch (error) {
-        console.log("error fetching user");
+        setError("Error fetching bookings. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
 
     fetchBooking();
-  }, [db, user]);
+  }, [user]);
 
   return (
     <>
-      {loading ? (
-        <p> Loading...</p>
-      ) : error ? (
-        <p> {error} </p>
-      ) : bookings.length > 0 ? (
-        <ul>
-          {bookings.map((booking, index) => (
-             <li key={index}> 
-             <h3>  Booking# {booking.uid} </h3>
-             <p>  Location: {booking.location} </p>
-             <p>  Date: {booking.date} </p>
-             <p>  Amount: {booking.amount} </p>
-         </li>
-          ))}
-        </ul>
-      ) : (
-        <p> No bookings </p>
-      )}
+      <Navbar />
+      <div className={styles.container}>
+        <h1 className={styles.heading}>Booking History</h1>
+
+        {loading ? (
+          <p className={styles.message}>Loading...</p>
+        ) : error ? (
+          <p className={styles.error}>{error}</p>
+        ) : bookings.length > 0 ? (
+          <ul className={styles.bookingList}>
+            {bookings.map((booking, index) => (
+              <li key={index} className={styles.bookingCard}>
+                <h2>Booking # {booking.bookingId}</h2>
+                <p><strong>Location:</strong> {booking.from}</p>
+                <p><strong>Amount:</strong> ${booking.fare * booking.passengers}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.message}>No bookings found.</p>
+        )}
+      </div>
     </>
   );
 };

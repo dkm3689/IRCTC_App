@@ -1,4 +1,43 @@
-.bookingContainer {
+/* .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 2px 2px 4px #888888;
+    border-radius: 5px;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+                             
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 2.5rem;
+}
+
+label {
+    font-weight: bold;
+    font-size: large;
+}
+
+
+button {
+    width: 100%;
+    background-color: #036;
+    color: white;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+} */
+
+
+
+.loginContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +48,7 @@
     margin: 0 auto;
     margin-top: 4rem;
     /* height: 700px; */
- }
+}
 
 .headingBox {
     margin: 0 auto;
@@ -40,10 +79,11 @@
     padding: 0.8rem;
     border-radius: 5px;
     font-size: 1.5rem;
-} 
+}
+
 
 .buttonBox button:hover {
-    cursor: pointer;
+    cursor:pointer;
     width: 100%;
     background-color: #036;
     color: white;
@@ -51,18 +91,4 @@
     padding: 0.8rem;
     border-radius: 5px;
     font-size: 1.5rem;
-} 
-
-/* div h3{
-    font-size: xxx-large;
 }
-
-.trainBooking p {
-    margin: 20px 0;
-    font-size:x-large;
-}
-
-.trainBooking div h3 {
-    margin: 20px 0;
-    font-size:xxx-large;
-} */
