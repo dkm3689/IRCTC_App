@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
   
   const login = (user) => {
     setLoggedInUser(user);
-    console.log("user reeived at auth context", user);
+    console.log("user received at auth context", user);
     console.log("logged in user", loggedInUser);
   }
 
@@ -22,8 +22,6 @@ const AuthProvider = ({children}) => {
   const logout = () => {
     setLoggedInUser(null);
   }
-
-
 
   return (
    <AuthContext.Provider value={ {loggedInUser ,login, logout} }> 
