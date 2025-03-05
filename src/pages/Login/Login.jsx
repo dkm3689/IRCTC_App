@@ -63,7 +63,7 @@ const Login = () => {
           <h2> Login </h2>
         </div>
 
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className={styles.inputBox}>
             <label htmlFor="email" className="username">
               {" "}
