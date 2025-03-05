@@ -1,12 +1,11 @@
 .train-card{
-    font-size: xxx-large;
+    font-size: x-large;
     margin: 10px 0;
 }
 
-
 .train-card p {
     margin: 10px 0;
-    font-size: xx-large;
+    font-size: large;
 }
 
 .train-card button{
