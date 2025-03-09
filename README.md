@@ -30,6 +30,12 @@
 
 ---
 
+## 📖 API Endpoints  
+- **GET** `/` → Home  
+- **POST** `/login` → User login  
+- **POST** `/register` → User registration  
+- **GET** `/api/history` → Fetch booking history  
+
 ## 🛠 Installation & Setup  
 
 ```bash
