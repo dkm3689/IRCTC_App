@@ -6,6 +6,7 @@
 ## 📂 GitHub Repository  
 🔗 [Click Here](https://github.com/dkm3689/IRCTC_App)  
 
+
 ---
 
 ## 🛠 Tech Stack  
@@ -29,6 +30,7 @@
 ![History](assets/irctc-history.png)  
 
 ---
+
 
 ## 📖 API Endpoints  
 - **GET** `/` → Home  
